@@ -43,5 +43,23 @@ time_table_create = ("""CREATE TABLE IF NOT EXISTS time (timestamp numeric,
                                                          year int,
                                                          weekday int)""")
 
+# INSERT RECORDS
+
+songplay_table_insert = ("""INSERT INTO songplays (timestamp, user_id, level, song_id, artist_id,
+                                                   session_id, location, user_agent)
+                            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)""")
+
+user_table_insert = ("""INSERT INTO users (user_id, first_name, last_name, gender, level)
+                        VALUES (%s, %s, %s, %s, %s)""")
+
+song_table_insert = ("""INSERT INTO songs (song_id, title, artist_id, year, duration)
+                        VALUES (%s, %s, %s, %s, %s)""")
+
+artist_table_insert = ("""INSERT INTO artists (artist_id, artist_name, artist_location, artist_latitude, artist_longitude)
+                          VALUES (%s, %s, %s, %s, %s)""")
+
+time_table_insert = ("""INSERT INTO time (timestamp, hour, day, weekofyear, month, year, weekday)
+                        VALUES (%s, %s, %s, %s, %s, %s, %s)""")
+
 create_table_queries = [songplay_table_create, user_table_create, song_table_create, artist_table_create, time_table_create]
 drop_table_queries = [songplay_table_drop, user_table_drop, song_table_drop, artist_table_drop, time_table_drop]
