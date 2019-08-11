@@ -61,5 +61,13 @@ artist_table_insert = ("""INSERT INTO artists (artist_id, artist_name, artist_lo
 time_table_insert = ("""INSERT INTO time (timestamp, hour, day, weekofyear, month, year, weekday)
                         VALUES (%s, %s, %s, %s, %s, %s, %s)""")
 
+# FIND SONGS
+
+song_select = ("""SELECT song_id, songs.artist_id
+                  FROM songs
+                  JOIN artists
+                  ON songs.artist_id = artists.artist_id
+                  WHERE title = (%s) AND artist_name = (%s) AND duration = (%s)""")
+
 create_table_queries = [songplay_table_create, user_table_create, song_table_create, artist_table_create, time_table_create]
 drop_table_queries = [songplay_table_drop, user_table_drop, song_table_drop, artist_table_drop, time_table_drop]
