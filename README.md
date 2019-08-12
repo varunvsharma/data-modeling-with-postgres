@@ -1,4 +1,4 @@
-# sparkifydb
+# Sparkify Database - PostgreSQL
 
 ### Purpose and Context
 
